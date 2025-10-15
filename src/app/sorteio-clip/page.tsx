@@ -493,11 +493,11 @@ export default function Home() {
                      value={formData.estado}
                      onChange={handleInputChange}
                      required
-                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.estado ? 'border-red-500' : 'border-gray-600'}`}
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.estado ? 'bg-white text-black' : 'bg-[#282828] text-white'} ${errors.estado ? 'border-red-500' : 'border-gray-600'}`}
                    >
-                     <option value="">Selecione o estado</option>
+                     <option value="" className="bg-[#282828] text-white">Selecione o estado</option>
                      {estados.map(estado => (
-                       <option key={estado} value={estado}>{estado}</option>
+                       <option key={estado} value={estado} className="bg-white text-black">{estado}</option>
                      ))}
                    </select>
                    {errors.estado && (
@@ -538,15 +538,15 @@ export default function Home() {
                      value={formData.turma}
                      onChange={handleInputChange}
                      required
-                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.turma ? 'border-red-500' : 'border-gray-600'}`}
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.turma ? 'bg-white text-black' : 'bg-[#282828] text-white'} ${errors.turma ? 'border-red-500' : 'border-gray-600'}`}
                    >
-                     <option value="">Selecione sua Turma</option>
-                     <option value="Turma 1">Turma 1</option>
-                     <option value="Turma 2">Turma 2</option>
-                     <option value="Turma 3">Turma 3</option>
-                     <option value="Turma 4">Turma 4</option>
-                     <option value="Turma 5">Turma 5</option>
-                     <option value="Turma 6">Turma 6</option>
+                     <option value="" className="bg-[#282828] text-white">Selecione sua turma</option>
+                     <option value="Turma 1" className="bg-white text-black">Turma 1</option>
+                     <option value="Turma 2" className="bg-white text-black">Turma 2</option>
+                     <option value="Turma 3" className="bg-white text-black">Turma 3</option>
+                     <option value="Turma 4" className="bg-white text-black">Turma 4</option>
+                     <option value="Turma 5" className="bg-white text-black">Turma 5</option>
+                     <option value="Turma 6" className="bg-white text-black">Turma 6</option>
                    </select>
                    {errors.turma && (
                      <p className="mt-1 text-sm text-red-500">{errors.turma}</p>
