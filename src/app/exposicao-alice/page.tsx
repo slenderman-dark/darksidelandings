@@ -3,7 +3,7 @@ import MainComponent from "@/components/MainComponent/MainComponent";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default function ExposicaoAlice() {
   return (
     <div className="">
       <header className="flex justify-center items-center bg-[#171717] h-24 md:h-20">

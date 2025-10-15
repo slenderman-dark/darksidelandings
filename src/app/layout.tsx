@@ -10,7 +10,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Darkside Books",
-  description: "Exposição Alice no País das Maravilhas - Darkside Books",
+  description: "Darkside Books",
 };
 
 export default function RootLayout({

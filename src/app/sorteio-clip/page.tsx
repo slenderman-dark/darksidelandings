@@ -201,10 +201,44 @@ export default function Home() {
       setIsSubmitting(true);
       
       try {
+        // Verificar se CPF já existe
+        const { data: cpfExists } = await supabase
+          .from('form_submissions')
+          .select('id')
+          .eq('cpf', formData.cpf)
+          .limit(1);
+
+        if (cpfExists && cpfExists.length > 0) {
+          setErrors(prev => ({
+            ...prev,
+            cpf: 'Este CPF já está cadastrado no sorteio'
+          }));
+          setIsSubmitting(false);
+          alert('Este CPF já está cadastrado no sorteio. Cada pessoa pode participar apenas uma vez.');
+          return;
+        }
+
+        // Verificar se email já existe
+        const { data: emailExists } = await supabase
+          .from('form_submissions')
+          .select('id')
+          .eq('email', formData.email.toLowerCase())
+          .limit(1);
+
+        if (emailExists && emailExists.length > 0) {
+          setErrors(prev => ({
+            ...prev,
+            email: 'Este email já está cadastrado no sorteio'
+          }));
+          setIsSubmitting(false);
+          alert('Este email já está cadastrado no sorteio. Cada pessoa pode participar apenas uma vez.');
+          return;
+        }
+
         // Preparar dados para o Supabase
         const submissionData: Omit<FormSubmission, 'id' | 'created_at'> = {
           nome_completo: formData.nomeCompleto,
-          email: formData.email,
+          email: formData.email.toLowerCase(), // Salvar email em minúsculas
           cpf: formData.cpf,
           endereco: formData.endereco,
           bairro: formData.bairro,
