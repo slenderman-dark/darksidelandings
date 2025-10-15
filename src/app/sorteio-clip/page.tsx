@@ -3,6 +3,7 @@
 import Header from "@/components/MainComponent/Header";
 import { useState } from "react";
 import { supabase, FormSubmission } from "@/lib/supabase";
+import Image from "next/image";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function Home() {
     cidade: "",
     estado: "",
     celular: "",
+    turma: "",
     autorizaEmails: false
   });
 
@@ -27,7 +29,8 @@ export default function Home() {
     cep: "",
     cidade: "",
     estado: "",
-    celular: ""
+    celular: "",
+    turma: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -143,6 +146,10 @@ export default function Home() {
         if (!validarTelefone(value)) return 'Celular inválido. Use o formato (XX) XXXXX-XXXX';
         return '';
       
+      case 'turma':
+        if (!value.trim()) return 'Turma é obrigatória';
+        return '';
+      
       default:
         return '';
     }
@@ -189,7 +196,8 @@ export default function Home() {
       cep: validarCampo('cep', formData.cep),
       cidade: validarCampo('cidade', formData.cidade),
       estado: validarCampo('estado', formData.estado),
-      celular: validarCampo('celular', formData.celular)
+      celular: validarCampo('celular', formData.celular),
+      turma: validarCampo('turma', formData.turma)
     };
 
     setErrors(newErrors);
@@ -246,6 +254,7 @@ export default function Home() {
           cidade: formData.cidade,
           estado: formData.estado,
           celular: formData.celular,
+          turma: formData.turma,
           autoriza_emails: formData.autorizaEmails
         };
 
@@ -273,6 +282,7 @@ export default function Home() {
             cidade: "",
             estado: "",
             celular: "",
+            turma: "",
             autorizaEmails: false
           });
           
@@ -286,7 +296,8 @@ export default function Home() {
             cep: "",
             cidade: "",
             estado: "",
-            celular: ""
+            celular: "",
+            turma: ""
           });
         }
       } catch (error) {
@@ -312,6 +323,17 @@ export default function Home() {
       <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <div className="bg-[#171717] shadow-xl rounded-lg p-8">
+             {/* Logo centralizado */}
+             <div className="flex justify-center mb-8">
+               <Image
+                 src="/logo-dark.png"
+                 alt="Dark Central Logo"
+                 width={200}
+                 height={64}
+                 className="object-contain"
+               />
+             </div>
+             
              <h2 className="text-3xl font-bold text-white text-center mb-8">
                Formulário de Participação - Sorteio Clip
              </h2>
@@ -484,25 +506,52 @@ export default function Home() {
                  </div>
                </div>
 
-               {/* Celular */}
-               <div>
-                 <label htmlFor="celular" className="block text-sm font-medium text-white mb-2">
-                   Celular *
-                 </label>
-                 <input
-                   type="tel"
-                   id="celular"
-                   name="celular"
-                   value={formData.celular}
-                   onChange={handleInputChange}
-                   required
-                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.celular ? 'border-red-500' : 'border-gray-600'}`}
-                   placeholder="(00) 00000-0000"
-                   maxLength={15}
-                 />
-                 {errors.celular && (
-                   <p className="mt-1 text-sm text-red-500">{errors.celular}</p>
-                 )}
+               {/* Celular e Turma */}
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 <div>
+                   <label htmlFor="celular" className="block text-sm font-medium text-white mb-2">
+                     Celular *
+                   </label>
+                   <input
+                     type="tel"
+                     id="celular"
+                     name="celular"
+                     value={formData.celular}
+                     onChange={handleInputChange}
+                     required
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.celular ? 'border-red-500' : 'border-gray-600'}`}
+                     placeholder="(00) 00000-0000"
+                     maxLength={15}
+                   />
+                   {errors.celular && (
+                     <p className="mt-1 text-sm text-red-500">{errors.celular}</p>
+                   )}
+                 </div>
+
+                 <div>
+                   <label htmlFor="turma" className="block text-sm font-medium text-white mb-2">
+                     Turma *
+                   </label>
+                   <select
+                     id="turma"
+                     name="turma"
+                     value={formData.turma}
+                     onChange={handleInputChange}
+                     required
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.turma ? 'border-red-500' : 'border-gray-600'}`}
+                   >
+                     <option value="">Selecione sua Turma</option>
+                     <option value="Turma 1">Turma 1</option>
+                     <option value="Turma 2">Turma 2</option>
+                     <option value="Turma 3">Turma 3</option>
+                     <option value="Turma 4">Turma 4</option>
+                     <option value="Turma 5">Turma 5</option>
+                     <option value="Turma 6">Turma 6</option>
+                   </select>
+                   {errors.turma && (
+                     <p className="mt-1 text-sm text-red-500">{errors.turma}</p>
+                   )}
+                 </div>
                </div>
 
                {/* Autorização para e-mails */}
