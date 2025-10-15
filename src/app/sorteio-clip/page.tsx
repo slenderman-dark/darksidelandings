@@ -351,7 +351,7 @@ export default function Home() {
                    value={formData.nomeCompleto}
                    onChange={handleInputChange}
                    required
-                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.nomeCompleto ? 'border-red-500' : 'border-gray-600'}`}
+                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.nomeCompleto ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.nomeCompleto ? 'border-red-500' : 'border-gray-600'}`}
                    placeholder="Digite seu nome completo"
                  />
                  {errors.nomeCompleto && (
@@ -371,7 +371,7 @@ export default function Home() {
                    value={formData.email}
                    onChange={handleInputChange}
                    required
-                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.email ? 'border-red-500' : 'border-gray-600'}`}
+                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.email ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.email ? 'border-red-500' : 'border-gray-600'}`}
                    placeholder="Digite seu e-mail"
                  />
                  {errors.email && (
@@ -391,7 +391,7 @@ export default function Home() {
                    value={formData.cpf}
                    onChange={handleInputChange}
                    required
-                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.cpf ? 'border-red-500' : 'border-gray-600'}`}
+                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.cpf ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.cpf ? 'border-red-500' : 'border-gray-600'}`}
                    placeholder="000.000.000-00"
                    maxLength={14}
                  />
@@ -412,7 +412,7 @@ export default function Home() {
                    value={formData.endereco}
                    onChange={handleInputChange}
                    required
-                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.endereco ? 'border-red-500' : 'border-gray-600'}`}
+                   className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.endereco ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.endereco ? 'border-red-500' : 'border-gray-600'}`}
                    placeholder="Digite seu endereço completo"
                  />
                  {errors.endereco && (
@@ -433,7 +433,7 @@ export default function Home() {
                      value={formData.bairro}
                      onChange={handleInputChange}
                      required
-                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.bairro ? 'border-red-500' : 'border-gray-600'}`}
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.bairro ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.bairro ? 'border-red-500' : 'border-gray-600'}`}
                      placeholder="Digite seu bairro"
                    />
                    {errors.bairro && (
@@ -452,7 +452,7 @@ export default function Home() {
                      value={formData.cep}
                      onChange={handleInputChange}
                      required
-                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.cep ? 'border-red-500' : 'border-gray-600'}`}
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.cep ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.cep ? 'border-red-500' : 'border-gray-600'}`}
                      placeholder="00000-000"
                      maxLength={9}
                    />
@@ -475,7 +475,7 @@ export default function Home() {
                      value={formData.cidade}
                      onChange={handleInputChange}
                      required
-                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.cidade ? 'border-red-500' : 'border-gray-600'}`}
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.cidade ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.cidade ? 'border-red-500' : 'border-gray-600'}`}
                      placeholder="Digite sua cidade"
                    />
                    {errors.cidade && (
@@ -493,7 +493,7 @@ export default function Home() {
                      value={formData.estado}
                      onChange={handleInputChange}
                      required
-                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.estado ? 'bg-white text-black' : 'bg-[#282828] text-white'} ${errors.estado ? 'border-red-500' : 'border-gray-600'}`}
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.estado ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.estado ? 'border-red-500' : 'border-gray-600'}`}
                    >
                      <option value="" className="bg-[#282828] text-white">Selecione o estado</option>
                      {estados.map(estado => (
@@ -519,7 +519,7 @@ export default function Home() {
                      value={formData.celular}
                      onChange={handleInputChange}
                      required
-                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-[#282828] text-white ${errors.celular ? 'border-red-500' : 'border-gray-600'}`}
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.celular ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.celular ? 'border-red-500' : 'border-gray-600'}`}
                      placeholder="(00) 00000-0000"
                      maxLength={15}
                    />
@@ -538,7 +538,7 @@ export default function Home() {
                      value={formData.turma}
                      onChange={handleInputChange}
                      required
-                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.turma ? 'bg-white text-black' : 'bg-[#282828] text-white'} ${errors.turma ? 'border-red-500' : 'border-gray-600'}`}
+                     className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${formData.turma ? 'bg-[#e8f0fe] text-black' : 'bg-[#282828] text-white'} ${errors.turma ? 'border-red-500' : 'border-gray-600'}`}
                    >
                      <option value="" className="bg-[#282828] text-white">Selecione sua turma</option>
                      <option value="Turma 1" className="bg-white text-black">Turma 1</option>
