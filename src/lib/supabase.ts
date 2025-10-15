@@ -21,6 +21,7 @@ export interface FormSubmission {
   cidade: string
   estado: string
   celular: string
+  turma: string
   autoriza_emails: boolean
   created_at?: string
 }
