@@ -299,6 +299,11 @@ export default function Home() {
             celular: "",
             turma: ""
           });
+
+          // Redirecionar para o site da Darkside Books
+          setTimeout(() => {
+            window.location.href = 'https://www.darksidebooks.com.br/';
+          }, 5000); // Aguarda 5 segundos para o usuário ver a mensagem de sucesso
         }
       } catch (error) {
         console.error('Erro inesperado:', error);
@@ -335,7 +340,7 @@ export default function Home() {
              </div>
              
              <h2 className="text-3xl font-bold text-white text-center mb-8">
-               Formulário de Participação - Sorteio Clip
+               Formulário de Participação
              </h2>
              
              <form onSubmit={handleSubmit} className="space-y-6">
