@@ -306,7 +306,7 @@ export default function Home() {
           // Redirecionar para o site da Darkside Books
           setTimeout(() => {
             window.location.href = 'https://www.darksidebooks.com.br/';
-          }, 4000); // Aguarda 4 segundos para o usuário ver o modal
+          }, 3000); // Aguarda 3 segundos para o usuário ver o modal
         }
       } catch (error) {
         console.error('Erro inesperado:', error);
