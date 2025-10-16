@@ -34,6 +34,7 @@ export default function Home() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   // Função para validar CPF
   const validarCPF = (cpf: string): boolean => {
@@ -269,7 +270,9 @@ export default function Home() {
           alert('Erro ao enviar formulário. Tente novamente.');
         } else {
           console.log('Dados salvos com sucesso:', data);
-          alert('Formulário enviado com sucesso! Você está participando do sorteio.');
+          
+          // Mostrar modal de sucesso
+          setShowSuccessModal(true);
           
           // Limpar formulário após sucesso
           setFormData({
@@ -303,7 +306,7 @@ export default function Home() {
           // Redirecionar para o site da Darkside Books
           setTimeout(() => {
             window.location.href = 'https://www.darksidebooks.com.br/';
-          }, 5000); // Aguarda 5 segundos para o usuário ver a mensagem de sucesso
+          }, 4000); // Aguarda 4 segundos para o usuário ver o modal
         }
       } catch (error) {
         console.error('Erro inesperado:', error);
@@ -598,6 +601,40 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Modal de Sucesso */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 px-4">
+          <div className="bg-[#171717] rounded-lg p-8 max-w-md w-full mx-auto text-center border border-gray-600">
+            {/* Logo da Darkside */}
+            <div className="flex justify-center mb-6">
+              <Image
+                src="/logo-dark.png"
+                alt="Dark Central Logo"
+                width={150}
+                height={48}
+                className="object-contain"
+              />
+            </div>
+            
+            {/* Mensagem de Sucesso */}
+             <h3 className="text-3xl font-bold text-white mb-4">
+               Formulário Enviado com Sucesso!
+             </h3>
+             <p className="text-lg text-gray-300 mb-6">
+               Você está participando do sorteio.
+             </p>
+             
+             {/* Spinner e Mensagem de Redirecionamento */}
+             <div className="flex flex-col items-center">
+               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#b31111] mb-3"></div>
+               <p className="text-base text-gray-400">
+                 Redirecionando para a Darkside Books...
+               </p>
+             </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
